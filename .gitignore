@@ -1,0 +1,6 @@
+*.temp
+'project proposal'/
+Pipfile
+Pipfile.lock
+config/
+__init__.py
