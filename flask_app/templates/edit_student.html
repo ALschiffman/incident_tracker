@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename= 'style.css')}}">
+    <title>Edit Student</title>
+</head>
+<body>
+    {%with messages =  get_flashed_messages()%}
+    {%if messages%}
+        {%for message in messages:%}
+            <p class="error_messages">{{message}}</p>
+        {%endfor%}
+    {%endif%}
+{%endwith%}
+    <h1>Edit {{student.first_name}} {{student.last_name}}</h1>
+    <form action="/student/update" method="post" class="space">
+        <input type="hidden" name="id" value="{{student.id}}">
+        <label for="first_name" class="label">First name: </label>
+        <input type="text" name="first_name" value="{{student.first_name}}">
+        <br>
+        <label for="last_name" class="label">Last name: </label>
+        <input type="text" name="last_name" value="{{student.last_name}}">
+        <br>
+        <input type="hidden" name="class_id" value="{{student.class_id}}">
+        <input type="submit" value="Submit" class="button">
+    </form>
+    <a href="/class/view/{{student.class_id}}" class="button">Return to class</a>
+</body>
+</html>

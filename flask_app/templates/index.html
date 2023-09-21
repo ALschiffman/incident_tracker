@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename= 'style.css')}}">
+    <title>login</title>
+</head>
+<body>
+    {%with messages =  get_flashed_messages()%}
+        {%if messages%}
+            {%for message in messages:%}
+                <p class="error_messages">{{message}}</p>
+            {%endfor%}
+        {%endif%}
+    {%endwith%}
+    <div class="doc_body" class="center">
+        <div class="registration_form">
+            <h2>New User Registration</h2>
+            <form action="/login_register", method="post">
+                <label for="first_name" class="label">First name: </label>
+                <input type="text" name="first_name">
+                <br>
+                <label for="last_name" class="label">Last name: </label>
+                <input type="text" name="last_name">
+                <br>
+                <label for="email" class="label">Email Address: </label>
+                <input type="email" name="email">
+                <br>
+                <label for="password" class="label">Password</label>
+                <input type="password" name="password">
+                <br>
+                <label for="conf_password" class="label">Confirm Password</label>
+                <input type="password" name="conf_password">
+                <br>
+                <input type="submit" class="button" value="Register">
+            </form>
+        </div>
+        <div class="login_form">
+            <h2>Login</h2>
+            <form action="/login", method="post">
+                <label for="email" class="label">Email Address: </label>
+                <input type="email" name="email">
+                <br>
+                <label for="password" class="label">Password</label>
+                <input type="password" name="password">
+                <br>
+                <input type="submit" class="button" value="Login">
+            </form>
+        </div>
+</body>
+</html>

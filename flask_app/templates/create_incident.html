@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename= 'style.css')}}">
+    <title>Create New Incident</title>
+</head>
+<body>
+    {%with messages =  get_flashed_messages()%}
+    {%if messages%}
+        {%for message in messages:%}
+            <p class="error_messages">{{message}}</p>
+        {%endfor%}
+    {%endif%}
+{%endwith%}
+    <h1>Record a new incident for {{student.first_name}} {{student.last_name}}</h1>
+    <form action="/save_new_incident" method="post" class="space">
+        <label for="happened" class="label">Description: </label>
+        <textarea name="happened"></textarea>
+        <br>
+        <label for="date" class="label">date: </label>
+        <input type="date" name="date">
+        <br>
+        <input type="hidden" name="student_id" value="{{student.id}}">
+        <input type="submit" class="button" value="Record Incident">
+    </form>
+    <a href="/student/view/{{student.id}}" class="button">Return to {{student.first_name}} {{student.last_name}}</a>
+</body>
+</html>

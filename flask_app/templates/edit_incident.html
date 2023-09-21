@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename= 'style.css')}}">
+    <title>Edit Incident</title>
+</head>
+<body>
+    {%with messages =  get_flashed_messages()%}
+    {%if messages%}
+        {%for message in messages:%}
+            <p class="error_messages">{{message}}</p>
+        {%endfor%}
+    {%endif%}
+{%endwith%}
+    <h1>Edit Incident</h1>
+    <form action="/incident/edit" method="post" class="space">
+        <input type="hidden" name="id" value="{{incident.id}}">
+        <label for="happened" class="label">Description: </label>
+        <textarea name="happened">{{incident.happened}}</textarea>
+        <br>
+        <label for="date" class="label">Date: </label>
+        <input type="date" name="date" value="{{incident.date}}">
+        <br>
+        <input type="hidden" name="student_id" value="{{incident.student_id}}">
+        <input type="submit" class="button" value="Submit">
+    </form>
+    <a href="/student/view/{{incident.student_id}}" class="button">Return to Student</a>
+</body>
+</html>

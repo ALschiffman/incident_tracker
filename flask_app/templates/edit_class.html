@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename= 'style.css')}}">
+    <title>Create New Class</title>
+</head>
+<body>
+    {%with messages =  get_flashed_messages()%}
+    {%if messages%}
+        {%for message in messages:%}
+            <p class="error_messages">{{message}}</p>
+        {%endfor%}
+    {%endif%}
+{%endwith%}
+    <h1>Edit {{course.class_name}}</h1>
+    <form action="/class/edit" method="post" class="space">
+        <input type="hidden" name="id" value="{{course.id}}">
+        <label for="class_name" class="label">Class name: </label>
+        <input type="text" name="class_name" value="{{course.class_name}}">
+        <br>
+        <label for="subject" class="label">Subject: </label>
+        <input type="text" name="subject" value="{{course.subject}}">
+        <br>
+        <input type="submit" value="Update class" class="button">
+    </form>
+    <a href="/all_classes" class="button">Return to classes</a>
+</body>
+</html>

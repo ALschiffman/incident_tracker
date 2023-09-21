@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename= 'style.css')}}">
+    <title>All Classes</title>
+</head>
+<body>
+    {%with messages =  get_flashed_messages()%}
+    {%if messages%}
+        {%for message in messages:%}
+            <p class="error_messages">{{message}}</p>
+        {%endfor%}
+    {%endif%}
+{%endwith%}
+    <h1>{{this_user.first_name}} {{this_user.last_name}}'s Classes</h1>
+    <form action="/logout" method="post">
+        <input type="submit" class="button" value="Logout">
+    </form>
+    <table class="table">
+        <thead>
+            <th>Class Name</th>
+            <th>Subject</th>
+            <th>Edit</th>
+        </thead>
+        <tbody>
+            {%if classes:%}
+            {%for i in classes:%}
+            <tr>
+                <td><a href="/class/view/{{i.id}}">{{i.class_name}}</a></td>
+                <td>{{i.subject}}</td>
+                <td><a href="class/update/{{i.id}}">Edit</a>/ <a href="/class/delete/{{i.id}}">delete</a></td>
+            </tr>
+                
+            {%endfor%}
+            {%endif%}
+        </tbody>
+    </table>
+    <a href="/class/create" class="button">Create New Class</a>
+</body>
+</html>

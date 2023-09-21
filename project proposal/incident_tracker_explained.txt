@@ -1,0 +1,9 @@
+Incident report system for teacher's use
+
+There are frequently issues that arrise in any classroom. If things are left unchecked these issues can undermine the classroom experience. When the rules are not applied consistently they become angry punishments instead of just consequences.
+Features:
+1) Display classes.
+2) Display students within each class.
+3) Show a tally of the most recent incident for each student.
+4) Show a view of each of a students incidents and weather they were positive or negative.
+5) Have a comments section for follow ups and responses from administrators or parents.

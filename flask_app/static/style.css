@@ -1,0 +1,41 @@
+body{
+    width: 70%;
+    margin: auto;
+    margin-top: 20px;
+}
+.space{
+    margin: 10px;
+}
+.label{
+    display: inline-flex;
+    height: fit-content;
+    width: 100px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.button{
+    background-color: white;
+    border: 2px solid black;
+    color: black;
+    border-radius: 0%;
+    font-size: larger;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 5px;
+    margin: 5px;
+}
+.button:hover{
+    background-color: black;
+    color: white;
+}
+.return_bar{
+    display: flex;
+    flex-flow: row;
+}
+textarea{
+    height: 30px;
+    width: 50%;
+}
+.error_messages{
+    color: red;
+}
